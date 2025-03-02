@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-CSRF_TRUSTED_ORIGINS = ['https://salon-project.onrender.com']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -27,13 +26,8 @@ SECRET_KEY = 'django-insecure-sfl)vc5@%d%g&tz#7(%d3e7724epwgh!(t13jhaj*6()ugtj=y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    "salon-project.onrender.com",
-    
-
-
-    "localhost","127.0.0.1",
-]
+ALLOWED_HOSTS = ['salon-project-xasn.onrender.com', '127.0.0.1', 'localhost']
+CSRF_TRUSTED_ORIGINS = ['https://salon-project-xasn.onrender.com']
 
 
 # Application definition
