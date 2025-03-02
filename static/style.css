@@ -1,0 +1,126 @@
+
+.carousel-caption {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Centers horizontally and vertically */
+    white-space: nowrap; /* Prevents text from wrapping */
+    color: #fff;
+    font-size: 6rem; /* Large font size for desktop */
+    font-family: "Lavishly Yours", cursive;
+    text-align: center;
+    font-weight: 400;
+    z-index: 10;
+}
+
+.carousel-caption::after {
+    content: "";
+    display: block;
+    width: 50%; /* Adjust width as needed */
+    height: 4px; /* Thickness of the underline */
+    background-color: #fff; /* Color of the underline */
+    margin-top: 15px; /* Adjusts space between text and underline */
+    margin-left: auto;
+    margin-right: 40px;
+    position: relative;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .carousel-caption {
+        font-size: 3rem; /* Smaller font size for mobile */
+        white-space: normal; /* Allow text to wrap */
+        top: 40%; /* Adjust vertical position for mobile */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Centers horizontally and vertically */
+    }
+
+    .carousel-caption::after {
+        width: 30%; /* Adjust underline width for mobile */
+        margin-right: 20px; /* Adjust margin for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-caption {
+        font-size: 2rem; /* Even smaller font size for very small screens */
+        top: 30%; /* Adjust vertical position for very small screens */
+    }
+
+    .carousel-caption::after {
+        width: 20%; /* Adjust underline width for very small screens */
+        margin-right: 10px; /* Adjust margin for very small screens */
+    }
+}
+.card-container {
+    background-color: black;
+    display: flex;
+    gap: 20px; /* Space between cards */
+    justify-content: center; /* Centers cards in the row */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    padding: 20px;
+}
+.card {
+    flex: 1 1 300px; /* Flex grow/shrink with a minimum width */
+    max-width: 400px;
+   border-style: none;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10px;
+}
+
+
+.card-image {
+    width: 70%;
+    height: auto;
+    border: 2px solid #ffffff;
+    transition: transform 0.3s ease;
+    
+}
+.card-image:hover {
+    transform: scale(1.05) rotate(3deg);
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.card-content h3 {
+    font-family: "Lavishly Yours", cursive;
+    font-size: 1.25em;
+    color: white !important;
+    margin: 8px 0;
+}
+.card-content h4 {
+    font-size: 1.25em;
+    color: white !important;
+    margin: 8px 0;
+}
+
+.card-content p {
+    color:white !important;
+    font-size: 1em;
+    margin-bottom: 16px;
+}
+.designer-heading {
+    font-size: 2em;
+    margin-top: 50px; /* Add space above the heading */
+    margin-bottom: 10px; /* Optional: Space below the heading */
+}
+.designer-heading::after {
+    content: "";
+    display: block;
+    width: 10%; /* Adjust width as needed */
+    height: 3px; /* Thickness of the underline */
+    background-color: #fff; /* Color of the underline */
+    margin-top: 15px; /* Adjusts space between text and underline */
+    margin-left: auto;
+    margin-right: 700px;
+    position: relative;
+}
+.card-img-top{
+    width: 30%;
+    height: auto;
+}
+

@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Special Events | My Sample Website{% endblock %}
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    /* General Styles */
+    body {
+        background-color: #222;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    .card-image {
+        width: 100%;
+        height: auto;
+        opacity: 0.7;
+    }
+
+    .h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-top: 20px;
+    }
+
+    .h1::after {
+        content: "";
+        display: block;
+        width: 10%;
+        height: 3px;
+        background-color: white;
+        margin: 15px auto;
+    }
+
+    .p {
+        text-align: justify;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin: 20px auto;
+        max-width: 800px;
+        padding: 0 20px;
+        letter-spacing: 0.5px;
+        word-spacing: 2px;
+    }
+
+    .btn1 {
+        display: inline-block;
+        padding: 14px 24px;
+        font-size: 1.2rem;
+        border: 1px solid wheat;
+        color: white;
+        text-decoration: none;
+        margin: 20px auto;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn1:hover {
+        background-color: wheat;
+        color: #222;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .h1 {
+            font-size: 2rem;
+        }
+
+        .h1::after {
+            width: 20%;
+        }
+
+        .p {
+            font-size: 1rem;
+            padding: 0 15px;
+            text-align: center;
+        }
+
+        .btn1 {
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .h1 {
+            font-size: 1.8rem;
+        }
+
+        .p {
+            font-size: 0.9rem;
+            padding: 0 10px;
+        }
+
+        .btn1 {
+            font-size: 0.9rem;
+            padding: 8px 16px;
+        }
+    }
+</style>
+<body>
+    <!-- Hero Image -->
+    <img src="{% static 'images/ev5.jpg' %}" alt="Special Events" class="card-image">
+
+    <!-- Content Section -->
+    <div class="container-fluid" style="text-align: center;">
+        <h1 class="h1">SPECIAL EVENTS</h1>
+        <p class="p">
+            At EYEFUL, we take immense pride in the artistry of our award-winning hairstylist and makeup artist, Nikki Gauvreau, and her dedicated team. With over a decade of mastery in weddings, photoshoots, runway shows, and film, Nikki is your trusted guide to discovering the ideal look for you and your wedding party.
+            <br><br>
+            Whether you aspire to accentuate your natural grace with simplicity, venture into a more daring allure, or find a captivating fusion of styles, we are here to make you radiate beauty and confidence on your momentous day.
+            <br><br>
+            To ensure your wedding day flows seamlessly and stress-free, we recommend scheduling a trial run for your hair and makeup approximately 5 to 6 months ahead of your special day. The trial run allows us to explore a variety of styles until we uncover the perfect match for your wedding. Feel free to bring your hairpieces, jewelry, and veils, enabling us to harmonize them with your chosen hairstyle during the trial. Arriving at the trial with a clean, lightly moisturized face is ideal for makeup trials. You’re welcome to share any inspirational photos, giving us a clear vision of your desires. If you need more clarification about your preferences, trust our ability to recommend flattering hairstyles and makeup to enhance your natural beauty.
+            <br><br>
+            After the trial, should you decide to secure our services for your wedding day, we kindly request a 50% deposit of the total service cost. Additional fees may apply for those desiring on-location services on the day of your event. The remaining balance is due two weeks before your event date. We aim to make your day as smooth and stress-free as possible, and collecting the payment in advance contributes to a worry-free experience. This way, we can wholeheartedly focus on ensuring your day is extraordinary.
+        </p>
+        <h4><a href="{% url 'contact' %}" class="btn1">Contact Now</a></h4>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Booking - My SampleWebsite{% endblock %}
+
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: black;color:white">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;padding-top: 100px;padding-bottom: 100px;">
+        <div class="form-container p-4" style="width: 600px; background-color: #222; border-radius: 8px;">
+    
+
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<form method="post" action="{% url 'booking' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn " style="background-color: white; color:black;">Submit Booking</button>
+</form> 
+<br><br>
+</div>
+</div>
+</body>
+{% endblock %}
+

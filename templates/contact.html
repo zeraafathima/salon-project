@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact - My SampleWebsite{% endblock %}
+
+{% block content %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.contact-page {
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.underline {
+    width: 60px;
+    height: 2px;
+    background-color: #fff;
+    margin: 0 auto 30px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+.form-section, .info-section {
+    flex: 1;
+    max-width: 500px;
+}
+
+.form-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-section form input, 
+.form-section form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-section form textarea {
+    height: 100px;
+    resize: none;
+}
+
+.form-section form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info-section .info {
+    margin-bottom: 20px;
+}
+
+.info-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.info-section p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 10px;
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+        </style>
+    </head>
+<body>
+    <script>
+        const hiringUrl = "{% url 'hiring' %}";
+        const bookingUrl = "{% url 'booking' %}";
+    </script>
+    <div class="contact-page">
+        <h1 class="contact-title">CONTACT</h1>
+        <div class="underline"></div>
+
+        <div class="contact-container">
+            <!-- Contact Form Section -->
+            <div class="form-section">
+                <h2>Get In Touch</h2>
+                <form action="{% url 'contact' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <textarea name="message" placeholder="Message" required></textarea>
+                    <div class="captcha">
+                        <!-- Embed your reCAPTCHA widget here -->
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+
+            <!-- Contact Info Section -->
+            <div class="info-section">
+                <div class="info">
+                    <h3><b>LOCATION</b></h3><br>
+                    <p>33 Middle Street<br>Lowell, MA 01852</p>
+                </div>
+                <div class="info">
+                    <h3><b>OUR HOURS</b></h3><br>
+                    <p>Monday: CLOSED<br>Tuesday - Friday: 11am – 7pm<br>Saturday: 10am – 5pm<br>Sunday: CLOSED</p>
+                </div>
+                <div class="info">
+                    <h3><b>CONTACT US</b></h3><br>
+                    <p>📞 978-710-5775<br>✉️ eyefulbeautysalon@gmail.com</p>
+                </div>
+                <div class="buttons">
+                    <button onclick="location.href=hiringUrl;">Join Our Team</button>
+                    <button onclick="location.href=bookingUrl;">Book An Appointment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23478.110432980364!2d-71.309149!3d42.645167!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3a43f3fe49de9%3A0x4e9d87de266283b8!2sEYEFUL%20Beauty!5e0!3m2!1sen!2sus!4v1731431809351!5m2!1sen!2sus" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</body>
+</html>
+
+{% endblock %}

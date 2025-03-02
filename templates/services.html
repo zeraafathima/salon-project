@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}My SampleWebsite service{% endblock%}
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    .head::after {
+    content: "";
+    display: block;
+    width: 10%; /* Adjust width as needed */
+    height: 3px; /* Thickness of the underline */
+    background-color: #fff; /* Color of the underline */
+    margin-top: 15px; /* Adjusts space between text and underline */
+    margin-left: auto;
+    margin-right: 700px;
+    position: relative;
+    }
+    .container-fluid {
+    background-color: #111;
+    color: #fff;
+   padding-top: 17px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main-title {
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.main-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: #fff;
+    margin: 8px auto;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    text-align: left;
+}
+
+.service h3 {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 5px;
+    color:white;
+}
+
+.description {
+    font-size: 17px;
+    color: white;
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+</style>
+<body style="background-color: black;color: white;">
+    <div class="container-fluid" style="background-color: #111;padding-top: 30px;">
+        <h1 class="head" style="text-align: center;">PRICING AND SALON CUSTOMS</h1><br>
+        <p>How Our Tiered Level Based Pricing works!
+<br><br>
+            Student Stylist: We believe in growing our industry which is why we team up with local Cosmetology Schools and eager students wanting to learn. These stylists complete our 6 month training program and perform services on live models to complete each area of training. These stylists work closely with Level 5-6 stylists.
+          <br> <br> 
+            Level 1 Stylist: These stylists are licensed stylists who have completed our 6 month training program and continue their education quarterly.  They are building their clientele while working on advanced techniques. 
+            <br><br>
+            Level 2- 4 Stylist: These stylists are continuing education quarterly and have increased experience in services and have higher clientele demand, earning an increase in price structure with each level.
+            <br><br>
+            Level 5-6 Stylist: These Stylists are our most experienced stylists in the EYEFUL Culture. They are mentors in our company and work closely with Student Stylists. They have earned another increased price structure due to their dedication to education, guest experience and high client demand.
+            <br><br>
+            When booking an appointment you can choose a stylist that best fits your beauty budget, pricing is listed in the booking process.</p>
+            <br><br>
+            
+            <h1 class="head" style="text-align: center;">CANCELLATION POLICY</h1><br>
+            <p>As our stylists are in high demand, EYEFUL Beauty requires a deposit to reserve your appointment. We understand some circumstances cannot be avoided, and we are happy to cancel or reschedule your appointment with 24 hours notice. If you wish to cancel your appointment without rescheduling and there is more than 24 hours notice, we will refund your deposit automatically.
+<br><br>
+                Please note that cancellations or no-shows within 24 hours of your appointment will result in a non-refundable deposit. This policy includes both scheduled no-shows and appointments made within 24 hours.
+                <br><br>
+                Please be aware: if you are more than 15 minutes late for your scheduled reservation, we cannot guarantee that you will receive all services scheduled to be performed by the stylist. Our team will do our best to accommodate your needs.
+                <br><br>
+                If you struggle to find your perfect time and date, please get in touch with the salon so we may add you to the waiting list.</p><br><br>
+    </div>
+
+
+    <h1 class="head" id="s1" style="text-align: center;">HAIR CUTTING</h1>
+    <br>
+    <ul>
+        {% for i  in service %}
+            <li>
+                <h2>{{ i.title }}</h2>
+                <p>{{ i.description }}</p>
+                <p>Price: ${{ i.price }}</p>
+            </li>
+        {% endfor %}
+       
+
+    </ul>
+    <div>
+        <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+        <a href="{% url 'booking' %}"class="btn"style ="padding: 6px 12px; font-size: 16px;background-color: black;color: white;border: 1px solid white;">BOOK NOW</button></a>
+        </div>
+</div>
+    <div class="container-fluid">
+        <h1 class="main-title">Color</h1>
+        <br>
+        <div class="services">
+            <div class="service">
+                <h3>Color Consultation</h3>
+                <p class="price">15 Min. Complementary Consultation</p>
+                <p class="description">A color consultation is an appointment with a hair stylist in which the guest explores all color service options. During a color consultation, the stylist discusses with the guest their color goals for their hair.   Clients are encouraged to bring photographs, etc to show off their inspiration and dislikes.  The stylist and client will also discuss pricing, at home care and the amount of time needed to perform the color service.</p>
+            </div>
+            <div class="service">
+                <h3>Corrective Color</h3>
+                <p class="price">Priced By The Hour</p>
+                <p class="description">A variety of techniques are used to achieve a drastic change, including removing permanent hair color, correcting red or orange tones, or changing color family. This service is very customized, and often time-consuming, this involves a thorough consultation with the client to determine time and pricing.  You’ll be shampooed and styled before you walk out the door!</p>
+            </div>
+            <div class="service">
+                <h3>Full Head Of Color (Not For Blonding Services)</h3>
+                <p class="price">$1200 & Up</p>
+                <p class="description"> If you seek a single, uniform hair color, the Full Head Color service is an ideal choice.  This entails the application of a single, typically permanent or semi-permanent, color to your entire hair, from roots to ends, whether it’s for covering grays or achieving a different tone.  Following your color service, you’ll indulge in a luxurious shampoo and styling session before departing our salon.</p>
+            </div>
+            <div class="service">
+                <h3>Retouch Color Service (Not For Blonding Services)</h3>
+                <p class="price">$1000 & Up</p>
+                <p class="description">The Retouch Color service procedure is specifically designed to apply color exclusively to the root area (not more than 1 inch of growth), typically using a permanent or semi-permanent color formula. To maintain a polished look, it is advisable to schedule a Retouch Color, ideally with a 6 week interval.  Following your color service, you’ll indulge in a luxurious shampoo and styling session before departing our salon.</p>
+            </div>
+            <div class="service">
+                <h3>Partial Custom Color (2hr Minimum)</h3>
+                <p class="price">$1600 & Up</p>
+                <p class="description"> Experience a touch of personalized luxury with our Partial Custom Color Service.  We begin by consulting with you to understand your unique color preferences and assess your hair.  This service focuses on enhancing specific sections, providing subtle or vibrant shades, and creating a harmonious blend that complements your natural beauty. Whether you’re seeking a sun-kissed effect or a refined, multi-dimensional look, our team will craft a customized color solution that suits your individual style. Your journey concludes with a professional styling session, ensuring you leave our salon with hair that reflects your distinctive style and radiates confidence.</p>
+            </div>
+            <div class="service">
+                <h3>Full Custom Color Service (3hr Minimum)</h3>
+                <p class="price">$2400 & Up</p>
+                <p class="description">Our Full Custom Color service (3 hr minimum) is the epitome of personalized hair transformation.  We offer extensive consultation, discussing your unique vision and analyzing your hair to tailor a custom color formula that matches your desires perfectly.  This service provides a completely bespoke experience, whether you’re looking for subtle highlights, a bold new hue, or a natural blend. With precision and care, we apply your customized color, leaving you with a stunning, individualized look.  Your journey concludes with a professional styling session, ensuring you leave our salon with hair that reflects your distinctive style and radiates confidence.</p>
+            </div>
+            <div class="service">
+                <h3>Rejuvenating Treatment</h3>
+                <p class="price">$360 & Up</p>
+                <p class="description">Meet our low-maintenance color line, designed to blend the appearance of grey hair in only five minutes. The range includes five shades.  This service is NOT for medium to long length hair.</p>
+            </div>
+        </div><br><br>
+        <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+            <a href="{% url 'booking' %}"class="btn"style ="padding: 6px 12px; font-size: 16px;background-color: #111;color: white;border: 1px solid white;">BOOK NOW</button></a>
+        </div>
+        <br>
+    </div>
+    <div class="container-fluid" style="background-color: black;">
+        <h1 class="main-title">ADD ON SERVICES</h1>
+        <br>
+        <div class="services">
+            <div class="service">
+                <h3>Glow Treatment</h3>
+                <p class="price">$450 & Up</p>
+                <p class="description">The Glow Treatment is a semi-permanent color service that enhances, enriches and tones natural or color-treated hair. It helps to brighten and tone dull or brassy color. It also adds shine and provides intense care for your hair, leaving it looking soft and beautiful. Get a Glow Treatment service about 4-6 weeks after your regular salon appointment to enhance or maintain your color. Typically, a Glow Treatment will last 6-8 weeks and will fade gradually – perfect timing for your next regular salon visit!</p>
+            </div>
+            <div class="service">
+                <h3>K18 Treatment</h3>
+                <p class="price">$300 & Up</p>
+                <p class="description">Rebuild Healthy Hair With The Treatment That Reverses Damage In Just 4 Minutes. Certified Plastic Neutral, Vegan, Cruelty-Free, Clinically Proven + Color-Safe Repair. Vegan. Cruelty-Free. Color Safe. For All Hair Types.</p>
+            </div>
+            <div class="service">
+                <h3>Iron Set</h3>
+                <p class="price">$80 & Up</p>
+                <p class="description">Hot tools, including curling iron, wand, or flat iron, are used to create a beautiful finished style.</p>
+            </div>
+            <div class="service">
+                <h3>Detox and Deep Conditioning Treatment </h3>
+                <p class="price">$220 & Up</p>
+                <p class="description">Pollution and environmental influences can stress your hair and scalp. Reset both for optimal hair health with our spa-inspired treatment. It not only balances the energy flow in your body and gives you a sense of relaxation, but it also deeply purifies and re-energizes your hair and scalp. <br>
+
+                    Customizable detox for you.   For a clean, rebalanced scalp and shiny, healthy hair. <br>
+                    
+                    This deep conditioning treatment provides intense moisture to strands and fortifies the hair with added protein. Your stylist will create a formula for color treated hair, moisturizing, smoothing, or strengthening.</p>
+            </div>
+            <div class="service">
+                <h3>Net Mask Hair Repair Treatment</h3>
+                <p class="price">$150 & Up</p>
+                <p class="description">Net Mask Hair Repair conditioning treatment boasts the most sophisticated science for intensive shine and hair rejuvenation. Provides a nano-replacement of the proteins and nano-regenerates damaged hair strands, restoring the elasticity, strength and brings back a natural hair look. It seals the hair cuticles, prolonging hydration with intensive shine. On coarse, curly or coiled hair types, it helps to define the curls. On all other hair types, it delivers controlled, silky, shiny results.</p>
+            </div>
+            <div class="service">
+                <h3>Chlorine Treatment</h3>
+                <p class="price">$200 & Up</p>
+                <p class="description">Stringy, tangled, discolored swimmers’ hair? Ditch the damage and discoloration with this must-have tune-up tool for every swimmer. Removes chlorine, copper, and other pool elements to reveal shinier, healthier, more vibrant hair.</p>
+            </div>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+                <a href="{% url 'booking' %}"class="btn"style ="padding: 6px 12px; font-size: 16px;background-color: black;color: white;border: 1px solid white;">BOOK NOW</button></a>
+            </div>
+            <br><br>
+            
+            
+        <br>
+            </div>
+            <div class="container-fluid">
+                <h3 class="main-title">EXTENSIONS</h3>
+                <h3 style="text-align: left;font-size: 21px;padding-left: 5px;">Extension Consultation</h3>
+                <p class="description">Hair Extensions are a wonderful way to change your look in one session.  Hair extensions can add length, volume or even a flash of color!  When it comes to hair extensions this is a customized service for each and every guest.  At EYEFUL we specialize in three types of hair extension application, tape-ins, K-Tip, and Sew-in Weft.  A consultation is a must to ensure the proper service and stylist is provided to make your hair dreams come true.</p>
+                <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+                    <a href="{% url 'booking' %}"class="btn"style ="padding: 6px 12px; font-size: 16px;background-color:#111;color: white;border: 1px solid white;">BOOK NOW</button></a>
+                </div> <br>
+          </div>
+            <div class="container-fluid" style="background-color: black;">
+                <h1 class="main-title">FINISHING</h1>
+                <br>
+                <div class="services">
+                    <div class="service">
+                        <h3>Wash & Blow-dry</h3>
+                        <p class="price">$250 & Up</p>
+                        <p class="description">A professional shampoo, blow dry and style for a special event, or pamper yourself with a style that can last a few days!.</p>
+                    </div>
+                    <div class="service">
+                        <h3>Formal Styling/Updo</h3>
+                        <p class="price">$650 & Up</p>
+                        <p class="description">Wedding, prom, or a special occasion, when the occasion calls for it our stylists will create a look that is stunning and perfectly you.</p>
+                    </div>
+                    </div><br><br>
+                    <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+                        <a href="{% url 'booking' %}"class="btn"style ="padding: 6px 12px; font-size: 16px;background-color: black;color: white;border: 1px solid white;">BOOK NOW</button></a>
+                    </div>
+                    <br>
+                    </div>
+
+                    <div class="container-fluid">
+                        <h1 class="main-title">TEXTURE TREATMENT</h1>
+                        <br>
+                        <div class="services">
+                            <div class="service">
+                                <h3>Brazilian Blowout</h3>
+                                <p class="price" style="text-decoration: line-through;">$2750 & Up </p><p><b style="color: red;font-size: 20px;"> 50% OFF!</b></p>
+                                <p class="description">Brazilian Blowout is a protein rich treatment which restores hair to its pristine condition.  Through the use of breakthrough bonding technologies, this customizable smoothing treatment actually improves the condition of the hair by creating a protective protein layer around the hair shaft to eliminate frizz and smooth the cuticle. The end result is smooth, frizz-free hair with radiant shine!</p>
+                            </div>
+                            <div class="service">
+                                <h3>Brazilian Blowout Express</h3>
+                                <p class="price" style="text-decoration: line-through;">$1250 & Up </p><p><b style="color: red;font-size: 20px;"> 50% OFF!</b></p>
+                                <p class="description">Looking for a quick fix that eliminates frizz and doesn’t take a lot of time? If yes, the BRAZILIAN BLOWOUT EXPRESS is the smoothing service for you! Utilizing intuitive smoothing technology + amphoteric cleansers BRAZILIAN BLOWOUT EXPRESS smooths and cleanses in one step to deliver 4 weeks of smooth frizz-free hair in 60 minutes or less.</p>
+                            </div>
+                            <div class="service">
+                                <h3>Perm</h3>
+                                <p class="price">$1000 & Up </p>
+                                <p class="description">A permanent wave creates curls or waves full of body, and helps with style support.</p>
+                            </div>
+                            </div><br><br>
+                            <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+                                <a href="{% url 'booking' %}"class="btn"style ="padding: 6px 12px; font-size: 16px;background-color:#111;color: white;border: 1px solid white;">BOOK NOW</button></a>
+                            </div>
+                            <br>
+                            </div>
+
+                            <div class="container-fluid" style="background-color: black;">
+                                <h1 class="main-title">WAXING</h1>
+                                <br>
+                                <div class="services">
+                                    <div class="service">
+                                        <h3>Eyebrow Wax</h3>
+                                        <p class="price">$100 & Up</p>
+                                    </div>
+                                    <div class="service">
+                                        <h3>Eyebrow Tinting</h3>
+                                        <p class="price">$150 & Up </p>
+                                        <p class="description">In minutes, tinting gives even the finest, fairest brows a boost of color.</p>
+                                    </div>
+                                    <div class="service">
+                                        <h3>Henna Brow Tint</h3>
+                                        <p class="price">$350 & Up </p>
+                                        <p class="description">The latest trend in brows!
+<br>
+                                            Henna Brow Tint is a service that results in fuller eyebrows as it colors hair and the skin underneath. The 100% natural formula is an alternative to tinting that is filled with antioxidants, a vitamin complex and hydrolyzed proteins that is safe for all skin types.  Henna Brows are a safe and vegan friendly alternative to other brow treatments.
+                                            <br>
+                                            Henna color lasts approximately 4 weeks on the brow hair and up to 7 days as a skin stain. (The length of time will differ from person to person)  
+                                            <br>
+                                            Amazing for creating a “powder brow look” The service includes an eyebrow wax or shape up and the tinting.</p>
+                                    </div>
+                                    <div class="service">
+                                        <h3>Upper Lip Wax</h3>
+                                        <p class="price">$80 & Up</p><br>
+                                    </div>
+                                    </div>
+                                    <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+                                        <a href="{% url 'booking' %}"class="btn"style ="padding: 6px 12px; font-size: 16px;background-color: black;color: white;border: 1px solid white;">BOOK NOW</button></a>
+                                    </div>
+                                    <br>
+                                    </div>
+    
+        
+
+
+</body>
+{% endblock %}    
