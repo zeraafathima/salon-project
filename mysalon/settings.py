@@ -131,5 +131,9 @@ MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
  
 
+# whitenoise middleware 
+INSTALLED_APPS += ["whitenoise.runserver_nostatic"]
+MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 
-
+# Enable WhiteNoise compression and caching
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
