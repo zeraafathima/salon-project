@@ -24,10 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-sfl)vc5@%d%g&tz#7(%d3e7724epwgh!(t13jhaj*6()ugtj=y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    "salon-project.onrender.com"
+    "salon-project.onrender.com",
+    "localhost","127.0.0.1",
 ]
 
 
